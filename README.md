@@ -1,2 +1,2 @@
 # HEALTHBRIDGE
-![The logo](https://drive.google.com/file/d/12I4EaKDfnoBu_o0-0QQ4IRSY7zb5HdR2/view?usp=share_link)
+![The logo](https://drive.google.com/file/d/1BabiL936RP873_EBY0F_x7j9kZhNN0xW/preview)
