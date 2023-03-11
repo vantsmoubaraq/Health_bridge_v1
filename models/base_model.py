@@ -11,15 +11,17 @@ class Base:
     def __init__(self, *args, **kwargs):
         if kwargs:
             for key, value in kwargs.items():
-                if key != "__class__":
+                if key != "id":
                     setattr(self, key, value)
-            if kwargs.get("updated_at"):
-                self.created_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%d %H:%M:%S")
+            if (kwargs.get("created_at") and type(self.created_at) is str):
+                self.created_at = datetime.strptime(kwargs["created_at"],
+                                                    "%Y-%m-%d %H:%M:%S")
             else:
                 self.created_at = datetime.utcnow()
 
-            if kwargs.get("created_at"):
-                self.updated_at = datetime.strptime(kwargs["created_at"], "%Y-%m-%d %H:%M:%S")
+            if (kwargs.get("updated_at") and type(self.created_at) is str):
+                self.updated_at = datetime.strptime(kwargs["created_at"],
+                                                    "%Y-%m-%d %H:%M:%S")
             else:
                 self.updated_at = datetime.utcnow()
             if "id" not in kwargs:
@@ -31,8 +33,16 @@ class Base:
 
     def to_dict(self):
         """Returns dictionary representation of object"""
-        return dict(self.__dict__)
-
+        attr = {}
+        attr["__class__"] = self.__class__.__name__
+        for key, value in dict(self.__dict__).items():
+            if key == "created_at":
+                attr[key] = value.strftime("%Y-%m-%d %H:%M:%S")
+            elif key == "updated_at":
+                attr[key] = value.strftime("%Y-%m-%d %H:%M:%S")
+            else:
+                attr[key] = value
+        return attr
 
     def __str__(self):
         """Returns string representation of object"""

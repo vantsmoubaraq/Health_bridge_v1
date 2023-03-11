@@ -2,7 +2,7 @@
 
 """Module implements the Payment  class"""
 
-from  models.base import Base
+from models.base_model import Base
 
 
 class Payment(Base):
