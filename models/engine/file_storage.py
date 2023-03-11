@@ -12,14 +12,18 @@ import json
 
 class FileStorage:
     """Class implements JSON filestorage engine"""
-    self.__objects = {}
-    self.__file = file.json
+    __objects = {}
+    __file = file.json
 
-    classes = {"Patient": Patient, "Drug": Drug, "Payment": Payment)
+    classes = {"Patient": Patient, "Drug": Drug, "Payment": Payment}
 
-    def get_all(self):
+    def all(self):
         """returns all objects"""
-        return self.__objects
+        all_objects = {}
+        for key, value in  self.__objects.items():
+            all_objects[key] = value.to_dict()
+        return all_objects()
+
 
     def create(self, obj):
         """adds object to objects dictionary"""
