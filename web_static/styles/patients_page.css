@@ -6,7 +6,7 @@
 }
 .main {
     background-color: hsl(40, 20%, 97%);
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -23,11 +23,11 @@ h2 {
     margin-bottom: 20px;
 }
 .main1 {
-    background-color: hsl(40, 20%, 97%);
-    height: 90vh;
+    background-color: hsl(60, 20%, 99%);
+    height: 90%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;  
 }
@@ -52,6 +52,7 @@ h2 {
     width: 30%;
     margin: 10px;
     vertical-align: top;
+    border: 2px solid rgb(226, 217, 217);
 }
 .card2 {
     width: 1050%;
@@ -77,11 +78,12 @@ h2 {
     align-items: center;
 }
 .left-side-img2 {
-    height: 100%;
-    top: 200px;
-    height: 100%;
+    height: 10%;
+    top: 20px;
+    height: 500%;
     position: center;
     border-top: 2rem;
+    right: 20;
 }
 .left-side2 {
     height: 70%;
@@ -100,6 +102,7 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     padding: 2rem;
+    left: 20%;
 }
 .title {
     height: 15%;
@@ -111,6 +114,7 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
+    color: white;
 }
 .patients {
     height: 15%;
@@ -122,6 +126,7 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
+    color: aliceblue;
 }
 .pharmacy {
     height: 15%;
@@ -133,6 +138,7 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
+    color: aliceblue;
 }
 .appointments {
     height: 15%;
@@ -144,6 +150,7 @@ h2 {
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
+    color: aliceblue;
 }
 
 .patient-name {
@@ -162,15 +169,27 @@ h2 {
 .btn {
     padding: 0.75rem 2rem;
     border: none;
-    background-color: hsl(158, 72%, 39%);
+    background-color: hsl(120, 78%, 34%);
     border-radius: 0.5rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     color: hsl(0, 0%, 100%);
     cursor: pointer;
 }
-.btn:hover {
-    background-color: hsl(212, 21%, 14%);
+
+.btn1 {
+    padding: 0.75rem 2rem;
+    border: none;
+    background-color: hsl(140, 61%, 48%);
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+
+.btn, .btn1:hover {
+    background-color: hsl(145, 70%, 26%);
 }
 
 
