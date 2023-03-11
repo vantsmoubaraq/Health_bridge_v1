@@ -5,6 +5,6 @@
 from  models.base import Base
 
 
-class Patient(Base):
+class Payment(Base):
     """Class Payment describes the the bills against patients"""
     pass
