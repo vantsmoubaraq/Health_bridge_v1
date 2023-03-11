@@ -46,4 +46,4 @@ class BaseModel:
 
     def __str__(self):
         """Returns string representation of object"""
-        return f"[[{self.__class__}] ({self.id}) {self.to_dict()}]"
+        return f"[[{self.__class__.__name__}] ({self.id}) {self.to_dict()}]"
