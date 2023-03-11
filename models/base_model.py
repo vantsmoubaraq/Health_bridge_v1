@@ -6,7 +6,7 @@ import uuid
 from datetime import datetime
 
 
-class Base:
+class BaseModel:
     """class implements all common functionality"""
     def __init__(self, *args, **kwargs):
         if kwargs:

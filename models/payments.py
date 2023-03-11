@@ -2,9 +2,9 @@
 
 """Module implements the Payment  class"""
 
-from models.base_model import Base
+from models.base_model import BaseModel
 
 
-class Payment(Base):
+class Payment(BaseModel):
     """Class Payment describes the the bills against patients"""
     pass
