@@ -9,20 +9,19 @@ from models.payments import Payment
 from datetime import datetime
 import json
 
+classes = {"Patient": Patient, "Drug": Drug, "Payment": Payment}
 
 class FileStorage:
     """Class implements JSON filestorage engine"""
     __objects = {}
-    __file = file.json
-
-    classes = {"Patient": Patient, "Drug": Drug, "Payment": Payment}
+    __file = "file.json"
 
     def all(self):
         """returns all objects"""
         all_objects = {}
         for key, value in  self.__objects.items():
             all_objects[key] = value.to_dict()
-        return all_objects()
+        return all_objects
 
 
     def create(self, obj):
@@ -65,14 +64,23 @@ class FileStorage:
         if obj_id in self.__objects:
             return self.__objects[obj_id]
 
-    def save(self, obj):
+    def save(self):
         """Persists object to JSON storage"""
-        class_name = obj.__class__.__name__
-        if class_name  in classes:
-            key = class_name + "." + obj.id
-            if key in self.__objects
-                obj_dict = obj.to_dict()
-                with open(self.__file, "w") as f:
-                    json.dump(obj_dict, f)
+        all_objects = []
+        for key, value in self.__objects.items():
+            all_objects.append(value.to_dict())
+        
+        with open(self.__file, "w") as f:
+            json.dump(all_objects, f)
 
+    def reload(self):
+        all_objects = []
 
+        with open(self.__file, "r") as f:
+            all_objects = json.load(f)
+
+        for obj in all_objects:
+            key = obj["__class__"] + "." + obj["id"]
+            value = eval(obj["__class__"])(**obj)
+            self.__objects[key] = value
+        return self.__objects

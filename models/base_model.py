@@ -4,14 +4,14 @@
 
 import uuid
 from datetime import datetime
+import models
 
-
-class Base:
+class BaseModel:
     """class implements all common functionality"""
     def __init__(self, *args, **kwargs):
         if kwargs:
             for key, value in kwargs.items():
-                if key != "id":
+                if key != "__class__":
                     setattr(self, key, value)
             if (kwargs.get("created_at") and type(self.created_at) is str):
                 self.created_at = datetime.strptime(kwargs["created_at"],
@@ -47,3 +47,16 @@ class Base:
     def __str__(self):
         """Returns string representation of object"""
         return f"[[{self.__class__.__name__}] ({self.id}) {self.to_dict()}]"
+
+    def create(self):
+        """set object in all objects dictionary"""
+        models.storage.create(self)
+
+    def save(self):
+        """Persists object in storage"""
+        models.storage.create(self)
+        models.storage.save()
+
+    def delete(self):
+        """deletes object from storage"""
+        models.storage.delete(self)

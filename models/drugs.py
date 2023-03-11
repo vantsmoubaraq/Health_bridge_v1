@@ -2,9 +2,9 @@
 
 """Module implements the drug class"""
 
-from models.base_model import Base
+from models.base_model import BaseModel
 
 
-class Drug(Base):
+class Drug(BaseModel):
     """Class Drug provides a description of the medicine"""
     pass
