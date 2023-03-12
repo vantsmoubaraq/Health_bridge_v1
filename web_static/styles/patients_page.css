@@ -1,0 +1,207 @@
+* {
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.main {
+    background-color: hsl(40, 20%, 97%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+h2 {
+    align-items: first baseline;
+    justify-content: flex-start;
+    font-size: 28px;
+    margin: 0;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.main1 {
+    background-color: hsl(60, 20%, 99%);
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;  
+}
+.main2 {
+    background-color: hsl(40, 20%, 97%);
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;  
+}
+.card {
+    width: 30%;
+    height: 9rem;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    vertical-align: top;
+    border: 2px solid rgb(226, 217, 217);
+}
+.card2 {
+    width: 1050%;
+    height: 3rem;
+    background-color: hsl(140, 61%, 48%);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    position: left;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+}
+
+.left-side {
+    height: 70%;
+    width: 50%;
+    object-fit: cover;
+    align-items: center;
+}
+.left-side-img {
+    height: 100%;
+    align-items: center;
+}
+.left-side-img2 {
+    height: 10%;
+    top: 20px;
+    height: 500%;
+    position: center;
+    border-top: 2rem;
+    right: 20;
+}
+.left-side2 {
+    height: 70%;
+    width: 50%;
+    object-fit: cover;
+    top: 2px;
+    border-top: 2rem;
+}
+.right-side {
+    height: 50%;
+    width: 50%;
+    top: 20px;
+    left: 30%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem;
+    left: 20%;
+}
+.title {
+    height: 15%;
+    width: 10%;
+    top: 0px;
+    left: 5%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: white;
+}
+.patients {
+    height: 15%;
+    width: 10%;
+    top: 0px;
+    left: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: aliceblue;
+}
+.pharmacy {
+    height: 15%;
+    width: 10%;
+    top: 0px;
+    left: 65%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: aliceblue;
+}
+.appointments {
+    height: 15%;
+    width: 10%;
+    top: 0px;
+    left: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    color: aliceblue;
+}
+
+.patient-name {
+    font-family: "Fraunces", serif;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    width: 15rem;
+}
+.description {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    line-height: 1.5rem;
+    color: hsl(0, 4%, 58%);
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    background-color: hsl(120, 78%, 34%);
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+
+.btn1 {
+    padding: 0.75rem 2rem;
+    border: none;
+    background-color: hsl(140, 61%, 48%);
+    border-radius: 0.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+}
+
+.btn, .btn1:hover {
+    background-color: hsl(145, 70%, 26%);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .card {
+      width: 45%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 100%;
+    }
+  }
