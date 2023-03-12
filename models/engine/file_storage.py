@@ -30,34 +30,7 @@ class FileStorage:
         if class_name  in classes:
             key = class_name + "." + obj.id
             self.__objects[key] = obj
-
-    def delete(self, obj):
-        """deletes instance"""
-        class_name = obj.__class__.__name__
-        if class_name  in classes:
-            key = class_name + "." + obj.id
-            if key in self.__objects:
-                del self.__objects[key]
-            else:
-                pass
-        else:
-            pass
-
-    def update(self, obj, **kwargs):
-        """updates instance attributes"""
-        try:
-            key = self.__class__.__name__ + "." + self.id
-            if key in self.__objects and kwargs:
-                for attr, value in kwargs.items():
-                    if attr != "__class__":
-                        if kwargs.get("created_at"):
-                            obj["created_at"] = datetime.strptime(kwargs["created_at"],"%Y-%m-%d %H:%M:%S")
-                        elif kwargs.get("updated_at"):
-                            obj["updated_at"] = datetime.strptime(kwargs["updated_at"],"%Y-%m-%d %H:%M:%S")
-                        else:
-                            setattr(obj, attr, value)
-        except Exception:
-            pass
+ 
 
     def get(self, obj_id):
         """gets single object by id"""
@@ -84,3 +57,24 @@ class FileStorage:
             value = eval(obj["__class__"])(**obj)
             self.__objects[key] = value
         return self.__objects
+
+    def delete(self, obj_id):
+        """deletes instance"""
+        if obj_id in self.__objects:
+            del self.__objects[obj_id]
+            self.save()
+        else:
+            pass
+
+    def update(self, obj_id, **kwargs):
+        """updates instance attributes"""
+        try:
+            if obj_id in self.__objects and kwargs:
+                obj = self.__objects[obj_id]
+                obj_dict = obj.to_dict()
+                obj_dict.update(**kwargs)
+                obj = eval(obj_dict["__class__"])(**obj_dict)
+                self.create(obj)
+                self.save()
+        except Exception:
+            pass
