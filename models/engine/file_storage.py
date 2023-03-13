@@ -16,12 +16,16 @@ class FileStorage:
     __objects = {}
     __file = "file.json"
 
-    def all(self):
+    def all(self, cls=None):
         """returns all objects"""
-        all_objects = {}
-        for key, value in  self.__objects.items():
-            all_objects[key] = value.to_dict()
-        return all_objects
+        if cls:
+            class_dict = {}
+            for key, value in self.__objects.items():
+                class_name = value.__class__.__name__
+                if cls == class_name:
+                    class_dict[key] = value
+            return class_dict
+        return self.__objects
 
 
     def create(self, obj):
